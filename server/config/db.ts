@@ -2,7 +2,7 @@
 
 
 
-export const RemoteURI = "mongodb+srv://connertamane:qrTUIdtNPXAgStOH@conner.4wrjvo5.mongodb.net/?retryWrites=true&w=majority";
+export const RemoteURI = "mongodb+srv://connertamane:qrTUIdtNPXAgStOH@conner.4wrjvo5.mongodb.net/contacts?retryWrites=true&w=majority";
 
 export const HostName = "Mongo DB Atlas";
 
