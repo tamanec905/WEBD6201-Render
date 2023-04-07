@@ -80,10 +80,20 @@ router.post('/edit/:id', function (req, res, next) {
         res.end(err);
     });
 });
-router.get('/delete/:id', function (req, res, next) {
+router.post('/delete/:id', function (req, res, next) {
     let id = req.params.id;
-    contact_1.default.deleteOne({ _id: id }).then(function () {
-        res.redirect('/contact-list');
+    contact_1.default.findById(id).then(function (contact) {
+        if (!contact) {
+            res.status(404).send("Contact not found");
+        }
+        else {
+            contact.deleteOne().then(function () {
+                res.redirect('/contact-list');
+            }).catch(function (err) {
+                console.error(err);
+                res.end(err);
+            });
+        }
     }).catch(function (err) {
         console.error(err);
         res.end(err);
