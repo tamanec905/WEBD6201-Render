@@ -106,16 +106,11 @@ router.post('/delete/:id', function(req, res, next)
   let id = req.params.id;
 
 
-  Contact.deleteOne({_id: id}, function(err : Error)
-  {
-    if(err)
-    {
-      console.error(err);
-      res.end(err);
-    }
-
-
+  Contact.deleteOne({_id: id}).then(function(){
     res.redirect('/contact-list');
+  }).catch(function(err){
+    console.error(err);
+    res.end(err);
   });
 });
 

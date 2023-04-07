@@ -82,12 +82,11 @@ router.post('/edit/:id', function (req, res, next) {
 });
 router.post('/delete/:id', function (req, res, next) {
     let id = req.params.id;
-    contact_1.default.deleteOne({ _id: id }, function (err) {
-        if (err) {
-            console.error(err);
-            res.end(err);
-        }
+    contact_1.default.deleteOne({ _id: id }).then(function () {
         res.redirect('/contact-list');
+    }).catch(function (err) {
+        console.error(err);
+        res.end(err);
     });
 });
 exports.default = router;
