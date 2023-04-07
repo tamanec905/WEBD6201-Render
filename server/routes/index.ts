@@ -101,7 +101,7 @@ router.post('/edit/:id', function(req, res, next)
   });
 });
 
-router.post('/delete/:id', function(req, res, next)
+router.get('/delete/:id', function(req, res, next)
 {
   let id = req.params.id;
 

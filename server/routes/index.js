@@ -80,7 +80,7 @@ router.post('/edit/:id', function (req, res, next) {
         res.end(err);
     });
 });
-router.post('/delete/:id', function (req, res, next) {
+router.get('/delete/:id', function (req, res, next) {
     let id = req.params.id;
     contact_1.default.deleteOne({ _id: id }).then(function () {
         res.redirect('/contact-list');
