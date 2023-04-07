@@ -92,16 +92,12 @@ router.post('/edit/:id', function(req, res, next)
   });
 
 
-  Contact.updateOne({_id:id}, updatedContact, function(err: ErrorCallback)
+  Contact.updateOne({_id:id}, updatedContact).then(function(){
+    res.redirect('/contact-list');
+  }).catch(function(err)
   {
-    if(err)
-    {
       console.error(err);
       res.end(err);
-    }
-
-
-    res.redirect('/contact-list')
   });
 });
 

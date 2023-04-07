@@ -73,12 +73,11 @@ router.post('/edit/:id', function (req, res, next) {
         "ContactNumber": req.body.contactNumber,
         "EmailAddress": req.body.emailAddress
     });
-    contact_1.default.updateOne({ _id: id }, updatedContact, function (err) {
-        if (err) {
-            console.error(err);
-            res.end(err);
-        }
+    contact_1.default.updateOne({ _id: id }, updatedContact).then(function () {
         res.redirect('/contact-list');
+    }).catch(function (err) {
+        console.error(err);
+        res.end(err);
     });
 });
 router.post('/delete/:id', function (req, res, next) {
