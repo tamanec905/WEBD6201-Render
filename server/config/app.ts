@@ -21,7 +21,7 @@ import User from '../models/user';
 const app = express();
 
 import * as DBConfig from './db';
-mongoose.connect(DBConfig.LocalURI);
+mongoose.connect(DBConfig.RemoteURI);
 
 const db = mongoose.connection;
 
