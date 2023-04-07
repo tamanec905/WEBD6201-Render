@@ -1,0 +1,25 @@
+{
+  "contacts" : [
+
+
+    {
+      "FullName" : "Harry Potter",
+      "ContactNumber" : "905-234-3948",
+      "EmailAddress" : "HarryWizard@domain.ca"
+    },
+
+    {
+      "FullName" : "Danny Phantom",
+      "ContactNumber" : "416-280-3328",
+      "EmailAddress" : "DannyPhantom@domain.ca"
+    },
+
+    {
+      "FullName" : "Jimmy Neutron",
+      "ContactNumber" : "289-333-1238",
+      "EmailAddress" : "JimmyNeutron@domain.ca"
+    }
+
+  ]
+
+}
