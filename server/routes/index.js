@@ -84,16 +84,12 @@ router.post('/delete/:id', function (req, res, next) {
     let id = req.params.id;
     contact_1.default.findById(id).then(function (contact) {
         if (!contact) {
-            res.status(404).send("Contact not found");
+            return res.status(404).send("Contact not found");
         }
-        else {
-            contact.deleteOne().then(function () {
-                res.redirect('/contact-list');
-            }).catch(function (err) {
-                console.error(err);
-                res.end(err);
-            });
-        }
+        return contact.deleteOne();
+    })
+        .then(function () {
+        res.redirect('/contact-list');
     }).catch(function (err) {
         console.error(err);
         res.end(err);
