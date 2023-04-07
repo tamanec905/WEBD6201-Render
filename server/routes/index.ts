@@ -101,22 +101,17 @@ router.post('/edit/:id', function(req, res, next)
   });
 });
 
-router.post('/delete/:id', function(req, res, next)
+router.get('/delete/:id', function(req, res, next)
 {
   let id = req.params.id;
 
 
-  Contact.findById(id).then(function(contact){
-    if (!contact){
-      return res.status(404).send("Contact not found")
-    }
-    return contact.deleteOne();})
-      .then(function () {
-        res.redirect('/contact-list');
-      }).catch(function (err) {
-        console.error(err);
-        res.end(err);
-      });
+  Contact.deleteOne({_id: id}).then(function(){
+    res.redirect('/contact-list');
+  }).catch(function(err){
+    console.error(err);
+    res.end(err);
+  });
 });
 
 
